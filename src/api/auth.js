@@ -3,8 +3,6 @@ const BASE_URL = process.env.VUE_APP_BASEURL;
 
 
 export default {
-
-
     login(username, password) {
         return session.post(BASE_URL+'/auth/login/', { username, password });
     },
@@ -14,7 +12,6 @@ export default {
     createAccount(username, password1, password2, email, recaptcha) {
         return session.post(BASE_URL+'/registration/', { username, email, password1, password2 , recaptcha});
     },
-
     sendAccountPasswordResetEmail(email) {
         return session.post(BASE_URL+'/auth/password/reset/', { email });
     },

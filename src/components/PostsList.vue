@@ -12,9 +12,8 @@
 </template>
 
 <script>
-    import axios from 'axios/index';
     import PostCard from "@/components/fragments/PostCard";
-    const BASE_URL = process.env.VUE_APP_BASEURL;
+    import posts from '../api/posts';
 
     export default {
         name: "PostsList",
@@ -26,17 +25,13 @@
             }
         },
         created() {
-            axios.get(BASE_URL+'/posts/')
+            posts.postList()
                 .then(response => {
-                    this.posts = response.data.results
-
-                })
+                    this.posts = response.data.results})
                 .catch(error => {
-                    this.errored = true;
-                })
+                    this.errored = true;})
         }
     }
-
 </script>
 
 <style scoped>

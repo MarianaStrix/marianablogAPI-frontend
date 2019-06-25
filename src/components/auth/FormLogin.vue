@@ -81,8 +81,11 @@
             submit (username, password) {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        this.$store.dispatch('auth/login', { username, password })
+                        this.$store
+                            .dispatch('auth/login', { username, password })
                             .then(() => this.$router.push('/'))
+                            .catch(error => this.serverError = true )
+
                     }
                 });
 

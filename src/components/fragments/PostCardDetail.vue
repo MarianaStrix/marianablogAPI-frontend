@@ -1,8 +1,21 @@
 <template>
     <v-card flat color="while">
         <v-card-title>
-            <span class="post-title">{{post.title}}</span>
+            <div class="post-title">
+                {{post.title}}
+                <v-btn icon to="/edit_post">
+                    <v-icon large
+                            color="blue-grey lighten-1"
+                    >edit</v-icon>
+                </v-btn>
+                <v-btn icon to="/delete_post">
+                    <v-icon large
+                            color="blue-grey lighten-1"
+                    >delete_forever</v-icon>
+                </v-btn>
+            </div>
         </v-card-title>
+
         <div>
             <div class="info-post">
                 <v-icon small color="blue-grey lighten-1">date_range</v-icon>

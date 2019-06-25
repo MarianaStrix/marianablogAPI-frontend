@@ -1,6 +1,7 @@
 <template>
     <v-card-text>
         <template v-if="emailLoading">
+           <v-icon>fas fa-circle-notch fa-spin</v-icon>
             loading...
         </template>
 
@@ -83,7 +84,9 @@
             {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        this.sendPasswordResetEmail(inputs)
+                        this.sendPasswordResetEmail(inputs);
+                        console.log(inputs)
+
                     }
                 });
 

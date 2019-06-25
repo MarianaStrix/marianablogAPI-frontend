@@ -5,6 +5,10 @@ const CSRF_HEADER_NAME = 'X-CSRFToken';
 const session = axios.create(  {
     xsrfCookieName: CSRF_COOKIE_NAME,
     xsrfHeaderName: CSRF_HEADER_NAME,
+
+    headers: {
+        'Authorization': `Token ${localStorage.getItem('TOKEN_STORAGE_KEY')}`
+    }
 });
 
 export default session;

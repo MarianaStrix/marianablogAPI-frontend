@@ -3,14 +3,17 @@ import VeeValidate from 'vee-validate';
 import Router from 'vue-router';
 
 import About from '../views/About';
+import PostAdd from '../views/posts/PostAdd'
 import Home from '../views/Home';
 import Login from '../views/auth/Login';
 import Lost from '../views/Lost';
 import PasswordReset from '../views/auth/PasswordReset';
 import PasswordResetConfirm from '../views/auth/PasswordResetConfirm';
+import PostDetail from '../views/posts/PostDetail';
 import VerifyEmail from '../views/auth/VerifyEmail';
 
 import store from '../store';
+import PostEdit from "@/views/posts/PostEdit";
 
 const requireAuthenticated = (to, from, next) => {
     store.dispatch('auth/initialize')
@@ -82,7 +85,22 @@ export default new Router({
             beforeEnter: redirectLogout,
         },
         {
+            path: '/post_add',
+            component: PostAdd,
+        },
+        {
+            path: '/post_edit',
+            component: PostEdit,
+        },
+        {
+            path: '/post/:id',
+            name: 'post',
+            component: PostDetail,
+            props: true,
+        },
+        {
             path: '*',
+            name: 'not_found',
             component: Lost,
         },
     ],

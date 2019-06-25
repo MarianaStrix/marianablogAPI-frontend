@@ -22,7 +22,7 @@
                     <img id="logo-image" alt="" src="../assets/logo.png">
                 </v-toolbar-title>
             </router-link>
-            <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/add-post">Add post</v-btn>
+            <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/post_add">Add post</v-btn>
             <v-spacer class="hidden-sm-and-down"></v-spacer>
             <v-btn icon class="hidden-sm-and-down" >
                 <v-icon>search</v-icon>
@@ -51,6 +51,7 @@
                     { title: 'Home', router: '/' },
                     { title: 'Sign in', router: '/login'},
                     { title: 'Search', router: '/search' },
+                    { title: 'Add post', router: '/post_add'},
                     { title: 'Language' },
                 ]
             };
