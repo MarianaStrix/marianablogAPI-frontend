@@ -1,4 +1,5 @@
 import session from './session';
+import session_without_token from "./session_without_token";
 
 const BASE_URL = process.env.VUE_APP_BASEURL;
 
@@ -17,10 +18,10 @@ export default {
     return session.post(BASE_URL + '/auth/password/reset/', {email});
   },
   resetAccountPassword(uid, token, new_password1, new_password2) { // eslint-disable-line camelcase
-    return session.post(BASE_URL + '/auth/password/reset/confirm/', {uid, token, new_password1, new_password2});
+    return session_without_token.post(BASE_URL + '/auth/password/reset/confirm/', {uid, token, new_password1, new_password2});
   },
   verifyAccountEmail(key) {
-    return session.post(BASE_URL + '/registration/verify-email/', {key});
+    return session_without_token.post(BASE_URL + '/registration/verify-email/', {key});
   },
   getAccountDetails() {
     return session.get(BASE_URL + '/auth/user/');

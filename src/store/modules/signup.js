@@ -33,7 +33,7 @@ export default {
             commit(ACTIVATION_BEGIN);
             return auth.verifyAccountEmail(key)
                 .then(() => commit(ACTIVATION_SUCCESS))
-                .catch(() => commit(ACTIVATION_FAILURE));
+                .catch((error) => commit(ACTIVATION_FAILURE));
         },
         clearRegistrationStatus({ commit }) {
             commit(REGISTRATION_CLEAR);
