@@ -1,19 +1,16 @@
+import Router from 'vue-router';
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
-import Router from 'vue-router';
 
-import About from '../views/About';
-import PostAdd from '../views/posts/PostAdd'
 import Home from '../views/Home';
 import Login from '../views/auth/Login';
 import Lost from '../views/Lost';
 import PasswordReset from '../views/auth/PasswordReset';
 import PasswordResetConfirm from '../views/auth/PasswordResetConfirm';
+import PostAdd from '../views/posts/PostAdd'
 import PostDetail from '../views/posts/PostDetail';
-import VerifyEmail from '../views/auth/VerifyEmail';
-
 import store from '../store';
-import PostEdit from "@/views/posts/PostEdit";
+import VerifyEmail from '../views/auth/VerifyEmail';
 
 const requireAuthenticated = (to, from, next) => {
     store.dispatch('auth/initialize')
@@ -53,11 +50,6 @@ export default new Router({
             redirect: '/home',
         },
         {
-            path: '/about',
-            component: About,
-            beforeEnter: requireAuthenticated,
-        },
-        {
             path: '/home',
             component: Home,
             beforeEnter: requireAuthenticated,
@@ -70,7 +62,6 @@ export default new Router({
             path: '/password_reset/:uid/:token',
             component: PasswordResetConfirm,
         },
-
         {
             path: '/register/:key',
             component: VerifyEmail,
@@ -87,10 +78,6 @@ export default new Router({
         {
             path: '/post_add',
             component: PostAdd,
-        },
-        {
-            path: '/post_edit',
-            component: PostEdit,
         },
         {
             path: '/post/:id',

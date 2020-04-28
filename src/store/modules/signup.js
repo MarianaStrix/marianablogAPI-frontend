@@ -20,12 +20,12 @@ export default {
         registrationCompleted: false,
         registrationError: null,
         registrationLoading: false,
-        errorFake: false
+        errorFake: false,
     },
     actions: {
-        createAccount({ commit }, { username, password1, password2, email, recaptcha }) {
+        createAccount({ commit }, { username, password1, password2, email, recaptcha, }) {
             commit(REGISTRATION_BEGIN);
-            return auth.createAccount(username, password1, password2, email, recaptcha)
+            return auth.createAccount(username, password1, password2, email, recaptcha,)
                 .then(() => commit(REGISTRATION_SUCCESS))
                 .catch((error) => commit(REGISTRATION_FAILURE, error));
         },

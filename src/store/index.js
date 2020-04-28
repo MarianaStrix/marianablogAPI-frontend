@@ -1,6 +1,6 @@
+import createLogger from 'vuex/dist/logger';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import createLogger from 'vuex/dist/logger';
 
 import auth from './modules/auth';
 import password from './modules/password';

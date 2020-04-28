@@ -11,10 +11,11 @@
 
 <script>
     import axios from 'axios';
-    import PostCardDetail from "@/components/fragments/PostCardDetail";
     import moment from 'moment/moment';
-    import SidePanel from "@/components/SidePanel";
+
     const BASE_URL = process.env.VUE_APP_BASEURL;
+    import PostCardDetail from "@/components/fragments/PostCardDetail";
+    import SidePanel from "@/components/SidePanel";
 
     export default {
         name: "PostDetail",
