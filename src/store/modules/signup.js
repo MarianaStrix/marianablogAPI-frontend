@@ -9,7 +9,7 @@ import {
     REGISTRATION_CLEAR,
     REGISTRATION_FAILURE,
     REGISTRATION_SUCCESS,
-} from '../actions/types';
+} from '../actions/signup';
 
 export default {
     namespaced: true,

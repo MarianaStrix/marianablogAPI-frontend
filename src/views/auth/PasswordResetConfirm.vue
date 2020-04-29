@@ -3,19 +3,19 @@
     <v-toolbar dark color="blue-grey darken-2">
       <v-toolbar-title>Reset Password Confirm</v-toolbar-title>
     </v-toolbar>
-    <form-password-reset-confirm/>
+    <password-reset-confirm-form/>
   </card-auth>
 </template>
 
 
 <script>
   import CardAuth from "@/components/fragments/CardAuth";
-  import FormPasswordResetConfirm from "@/components/auth/FormPasswordResetConfirm";
+  import PasswordResetConfirmForm from "@/components/auth/PasswordResetConfirmForm";
 
   export default {
-    name: "PaswordResetConfirm",
+    name: "PasswordResetConfirm",
     components: {
-      FormPasswordResetConfirm,
+      PasswordResetConfirmForm,
       CardAuth,
     },
   };

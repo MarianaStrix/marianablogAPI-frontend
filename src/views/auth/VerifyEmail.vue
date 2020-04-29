@@ -3,19 +3,19 @@
     <v-toolbar dark color="blue-grey darken-2">
       <v-toolbar-title>Verify Email</v-toolbar-title>
     </v-toolbar>
-    <form-verify-email></form-verify-email>
+    <verify-email-form></verify-email-form>
   </card-auth>
 </template>
 
 
 <script>
   import CardAuth from "@/components/fragments/CardAuth";
-  import FormVerifyEmail from "@/components/auth/FormVerifyEmail";
+  import VerifyEmailForm from "@/components/auth/VerifyEmailForm";
 
   export default {
     name: 'VerifyEmail',
     components: {
-      FormVerifyEmail,
+      VerifyEmailForm,
       CardAuth,
     },
 

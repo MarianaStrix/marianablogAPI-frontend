@@ -9,7 +9,7 @@ import {
     PASSWORD_RESET_CLEAR,
     PASSWORD_RESET_FAILURE,
     PASSWORD_RESET_SUCCESS,
-} from '../actions/types';
+} from '../actions/password';
 
 export default {
     namespaced: true,

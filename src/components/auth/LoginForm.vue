@@ -50,7 +50,7 @@
   import {mapState} from 'vuex';
 
   export default {
-    name: 'FormLogin',
+    name: 'LoginForm',
     $_veeValidate: {
       validator: 'new'
     },

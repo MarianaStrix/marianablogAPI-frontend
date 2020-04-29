@@ -57,7 +57,7 @@
   import posts from '../../api/posts';
 
   export default {
-    name: "FormPostAdd",
+    name: "PostAddForm",
     data: () => ({
       title: "",
       text: "",

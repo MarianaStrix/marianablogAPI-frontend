@@ -75,7 +75,7 @@
   import {mapActions, mapState} from 'vuex';
 
   export default {
-    name: "FormPaswordResetConfirm",
+    name: "PasswordResetConfirmForm",
     data() {
       return {
         show: false,

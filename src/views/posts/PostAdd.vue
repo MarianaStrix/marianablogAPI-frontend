@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12 sm12 md9>
         <h1 align="center">Add Post</h1>
-        <form-post-add></form-post-add>
+        <post-add-form></post-add-form>
       </v-flex>
       <side-panel></side-panel>
     </v-layout>
@@ -12,12 +12,15 @@
 </template>
 
 <script>
-  import FormPostAdd from "@/components/posts/FormPostAdd";
+  import PostAddForm from "@/components/posts/PostAddForm";
   import SidePanel from "@/components/SidePanel";
 
   export default {
     name: "PostAdd",
-    components: {FormPostAdd, SidePanel},
+    components: {
+      PostAddForm,
+      SidePanel,
+    },
   }
 </script>
 

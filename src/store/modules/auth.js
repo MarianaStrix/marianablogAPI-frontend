@@ -7,7 +7,7 @@ import {
   LOGOUT,
   REMOVE_TOKEN,
   SET_TOKEN,
-} from '../actions/types';
+} from '../actions/auth';
 
 const TOKEN_STORAGE_KEY = 'TOKEN_STORAGE_KEY';
 

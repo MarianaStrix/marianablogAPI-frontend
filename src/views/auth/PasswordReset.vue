@@ -3,21 +3,21 @@
     <v-toolbar dark color="blue-grey darken-2">
       <v-toolbar-title>Reset Password</v-toolbar-title>
     </v-toolbar>
-    <form-password-reset>
-    </form-password-reset>
+    <password-reset-form>
+    </password-reset-form>
   </card-auth>
 </template>
 
 
 <script>
   import CardAuth from "@/components/fragments/CardAuth";
-  import FormPasswordReset from "@/components/auth/FormPasswordReset";
+  import PasswordResetForm from "@/components/auth/PasswordResetForm";
 
   export default {
     name: 'PasswordReset',
     components: {
       CardAuth,
-      FormPasswordReset,
+      PasswordResetForm,
     },
   };
 </script>

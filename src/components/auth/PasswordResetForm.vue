@@ -54,7 +54,7 @@
   import {mapActions, mapState} from 'vuex';
 
   export default {
-    name: 'FormPasswordReset',
+    name: 'PasswordResetForm',
     $_veeValidate: {
       validator: 'new'
     },

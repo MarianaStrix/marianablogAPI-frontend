@@ -27,7 +27,7 @@
   } from 'vuex';
 
   export default {
-    name: "FormVerifyEmail",
+    name: "VerifyEmailForm",
     computed: {
       ...mapGetters('auth', ['isAuthenticated']),
       ...mapState('signup', [

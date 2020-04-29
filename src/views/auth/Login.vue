@@ -8,7 +8,7 @@
       </v-tab>
 
       <v-tab-item>
-        <form-login></form-login>
+        <login-form></login-form>
       </v-tab-item>
 
       <v-tab>
@@ -16,7 +16,7 @@
       </v-tab>
 
       <v-tab-item>
-        <register></register>
+        <register-form></register-form>
       </v-tab-item>
 
     </v-tabs>
@@ -26,15 +26,15 @@
 
 <script>
   import CardAuth from "@/components/fragments/CardAuth";
-  import FormLogin from "@/components/auth/FormLogin";
-  import Register from "@/components/auth/FormRegister";
+  import LoginForm from "@/components/auth/LoginForm";
+  import RegisterForm from "@/components/auth/RegisterForm";
 
   export default {
     name: 'Login',
     components: {
       CardAuth,
-      FormLogin,
-      Register,
+      LoginForm,
+      RegisterForm,
     },
 
   }

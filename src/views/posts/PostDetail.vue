@@ -19,7 +19,10 @@
 
     export default {
         name: "PostDetail",
-        components: {SidePanel, PostCardDetail},
+        components: {
+          SidePanel,
+          PostCardDetail,
+        },
         props: ['id'],
         data() {
             return {

@@ -90,7 +90,7 @@
   const SITE_KEY = process.env.VUE_APP_SITE_KEY_RECAPTCHA;
 
   export default {
-    name: 'Register',
+    name: 'RegisterForm',
     components: {VueRecaptcha},
     $_veeValidate: {
 
