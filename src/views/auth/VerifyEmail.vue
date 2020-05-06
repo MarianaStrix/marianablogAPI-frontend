@@ -13,7 +13,7 @@
   import VerifyEmailForm from "@/components/auth/VerifyEmailForm";
 
   export default {
-    name: 'VerifyEmail',
+    name: "VerifyEmail",
     components: {
       VerifyEmailForm,
       CardAuth,

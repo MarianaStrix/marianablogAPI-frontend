@@ -17,7 +17,7 @@
     <div>
       <div class="info-post">
         <v-icon small color="blue-grey lighten-1">date_range</v-icon>
-        <span>{{moment(post.published_date).format('LLLL')}}</span>
+        <span>{{moment(post.published_date).format("LLLL")}}</span>
       </div>
       <div class="info-post">
         <v-icon small color="blue-grey lighten-1" id="icon-person">person</v-icon>
@@ -40,11 +40,11 @@
 
 
 <script>
-  import moment from 'moment/moment';
+  import moment from "moment/moment";
 
   export default {
     name: "PostCardDetail",
-    props: ['post'],
+    props: ["post"],
     methods: {
       moment
     }

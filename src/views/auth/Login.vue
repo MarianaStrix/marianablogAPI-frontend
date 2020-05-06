@@ -30,7 +30,7 @@
   import RegisterForm from "@/components/auth/RegisterForm";
 
   export default {
-    name: 'Login',
+    name: "Login",
     components: {
       CardAuth,
       LoginForm,

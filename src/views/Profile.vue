@@ -54,7 +54,7 @@
     },
 
     // methods: {
-    //     ...mapActions("user", ["isAuthenticated']),
+    //     ...mapActions("user", ["isAuthenticated"]),
     //     saveBasicSettings(profile) {
     //         this.$validator.validateAll().then((result) => {
     //             if (result) {

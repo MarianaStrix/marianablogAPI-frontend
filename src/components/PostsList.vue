@@ -14,7 +14,7 @@
 
 <script>
   import PostCard from "@/components/fragments/PostCard";
-  import posts from '../api/posts';
+  import posts from "../api/posts";
 
   export default {
     name: "PostsList",
@@ -30,7 +30,7 @@
         .then(response => {
           this.posts = response.data.results
         })
-        .catch(error => {
+        .catch(() => {
           this.errored = true;
         })
     }

@@ -10,18 +10,18 @@
 
 
 <script>
-  import AppNavigation from '@/components/AppNavigation';
+  import AppNavigation from "@/components/AppNavigation";
   import HomeLogo from "@/components/HomeLogo";
-  import {mapGetters} from 'vuex';
+  import {mapGetters} from "vuex";
 
   export default {
-    name: 'App',
+    name: "App",
     components: {
       HomeLogo,
       AppNavigation
     },
-    computed: mapGetters('auth', [
-      'isAuthenticated',
+    computed: mapGetters("auth", [
+      "isAuthenticated",
     ]),
   };
 </script>

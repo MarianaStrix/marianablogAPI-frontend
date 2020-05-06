@@ -14,7 +14,7 @@
   import PasswordResetForm from "@/components/auth/PasswordResetForm";
 
   export default {
-    name: 'PasswordReset',
+    name: "PasswordReset",
     components: {
       CardAuth,
       PasswordResetForm,

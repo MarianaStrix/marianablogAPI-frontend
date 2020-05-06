@@ -13,7 +13,7 @@
   import PostsList from "@/components/PostsList";
 
   export default {
-    name: 'home',
+    name: "home",
     components: {
       PostsList,
       SidePanel,

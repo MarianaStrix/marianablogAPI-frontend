@@ -24,21 +24,21 @@
     mapActions,
     mapGetters,
     mapState,
-  } from 'vuex';
+  } from "vuex";
 
   export default {
     name: "VerifyEmailForm",
     computed: {
-      ...mapGetters('auth', ['isAuthenticated']),
-      ...mapState('signup', [
-        'activationCompleted',
-        'activationError',
-        'activationLoading',
+      ...mapGetters("auth", ["isAuthenticated"]),
+      ...mapState("signup", [
+        "activationCompleted",
+        "activationError",
+        "activationLoading",
       ]),
     },
-    methods: mapActions('signup', [
-      'activateAccount',
-      'clearActivationStatus',
+    methods: mapActions("signup", [
+      "activateAccount",
+      "clearActivationStatus",
     ]),
     created() {
       this.activateAccount(this.$route.params);

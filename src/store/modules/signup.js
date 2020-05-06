@@ -1,4 +1,4 @@
-import auth from '../../api/auth';
+import auth from "../../api/auth";
 
 import {
     ACTIVATION_BEGIN,
@@ -9,7 +9,7 @@ import {
     REGISTRATION_CLEAR,
     REGISTRATION_FAILURE,
     REGISTRATION_SUCCESS,
-} from '../actions/signup';
+} from "../actions/signup";
 
 export default {
     namespaced: true,

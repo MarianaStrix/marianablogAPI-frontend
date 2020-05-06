@@ -54,7 +54,7 @@
 
 
 <script>
-  import posts from '../../api/posts';
+  import posts from "../../api/posts";
 
   export default {
     name: "PostAddForm",
@@ -68,9 +68,9 @@
     methods: {
       makeListTags: function (tags) {
         if (tags === []) {
-          return ['']
+          return [""]
         } else {
-          return tags.split(', ')
+          return tags.split(", ")
         }
       },
 
@@ -79,9 +79,9 @@
           if (result) {
             posts.addPost(title, text, this.makeListTags(tags))
               .then(response => {
-                this.$router.push({name: 'post', params: {id: response.data.id}})
+                this.$router.push({name: "post", params: {id: response.data.id}})
               })
-              .catch((e) => {
+              .catch(() => {
                 this.error = true;
               })
           }

@@ -49,11 +49,11 @@
       return {
         drawer: false,
         items: [
-          { title: 'May 2020' },
-          { title: 'April 2020' },
-          { title: 'March 2020' },
-          { title: 'February 2020' },
-          { title: 'January 2020' },
+          { title: "May 2020" },
+          { title: "April 2020" },
+          { title: "March 2020" },
+          { title: "February 2020" },
+          { title: "January 2020" },
         ]
       };
     }

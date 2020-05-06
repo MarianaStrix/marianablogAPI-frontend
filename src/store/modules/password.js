@@ -1,4 +1,4 @@
-import auth from '../../api/auth';
+import auth from "../../api/auth";
 
 import {
     PASSWORD_EMAIL_BEGIN,
@@ -9,7 +9,7 @@ import {
     PASSWORD_RESET_CLEAR,
     PASSWORD_RESET_FAILURE,
     PASSWORD_RESET_SUCCESS,
-} from '../actions/password';
+} from "../actions/password";
 
 export default {
     namespaced: true,

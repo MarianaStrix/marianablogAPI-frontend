@@ -84,17 +84,17 @@
 
 
 <script>
-  import {mapActions, mapState} from 'vuex';
-  import VueRecaptcha from 'vue-recaptcha';
+  import {mapActions, mapState} from "vuex";
+  import VueRecaptcha from "vue-recaptcha";
 
   const SITE_KEY = process.env.VUE_APP_SITE_KEY_RECAPTCHA;
 
   export default {
-    name: 'RegisterForm',
+    name: "RegisterForm",
     components: {VueRecaptcha},
     $_veeValidate: {
 
-      validator: 'new'
+      validator: "new"
     },
     data() {
       return {
@@ -102,24 +102,24 @@
         sitekey: SITE_KEY,
         recaptchaForm: false,
         inputs: {
-          username: '',
-          email: '',
-          password1: '',
-          password2: '',
-          recaptcha: '',
+          username: "",
+          email: "",
+          password1: "",
+          password2: "",
+          recaptcha: "",
         },
       };
     },
-    computed: mapState('signup', [
-      'registrationCompleted',
-      'registrationError',
-      'registrationLoading',
+    computed: mapState("signup", [
+      "registrationCompleted",
+      "registrationError",
+      "registrationLoading",
     ]),
     methods: {
       ...mapActions(
-        'signup', [
-          'createAccount',
-          'clearRegistrationStatus',
+        "signup", [
+          "createAccount",
+          "clearRegistrationStatus",
 
         ]),
       onVerify: function (key) {

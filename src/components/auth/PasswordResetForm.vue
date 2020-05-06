@@ -51,28 +51,28 @@
 
 
 <script>
-  import {mapActions, mapState} from 'vuex';
+  import {mapActions, mapState} from "vuex";
 
   export default {
-    name: 'PasswordResetForm',
+    name: "PasswordResetForm",
     $_veeValidate: {
-      validator: 'new'
+      validator: "new"
     },
     data() {
       return {
-        inputs: {email: ''},
+        inputs: {email: ""},
       };
 
     },
-    computed: mapState('password', [
-      'emailCompleted',
-      'emailError',
-      'emailLoading',
+    computed: mapState("password", [
+      "emailCompleted",
+      "emailError",
+      "emailLoading",
     ]),
     methods: {
-      ...mapActions('password', [
-        'sendPasswordResetEmail',
-        'clearEmailStatus',
+      ...mapActions("password", [
+        "sendPasswordResetEmail",
+        "clearEmailStatus",
       ]),
 
       submit(inputs) {

@@ -72,7 +72,7 @@
 
 <script>
 
-  import {mapActions, mapState} from 'vuex';
+  import {mapActions, mapState} from "vuex";
 
   export default {
     name: "PasswordResetConfirmForm",
@@ -80,25 +80,25 @@
       return {
         show: false,
         inputs: {
-          password1: '',
-          password2: '',
+          password1: "",
+          password2: "",
           uid: this.$route.params.uid,
           token: this.$route.params.token,
         },
       };
     },
-    computed: mapState('password', [
-      'resetCompleted',
-      'resetError',
-      'resetLoading',
-      'serverError',
-      'resetErrorToken',
+    computed: mapState("password", [
+      "resetCompleted",
+      "resetError",
+      "resetLoading",
+      "serverError",
+      "resetErrorToken",
     ]),
     methods: {
       ...mapActions(
-        'password', [
-          'resetPassword',
-          'clearResetStatus',
+        "password", [
+          "resetPassword",
+          "clearResetStatus",
         ]),
       submit() {
         this.$validator
