@@ -30,36 +30,41 @@
 <!--      <v-btn flat class="hidden-sm-and-down" to="/register">-->
 <!--        <v-icon>language</v-icon>-->
 <!--      </v-btn>-->
-      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/profile">My profile</v-btn>
-      <v-btn v-if="!isAuthenticated" flat class="hidden-sm-and-down" to="/login">Sign in</v-btn>
-      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/logout">Logout</v-btn>
+      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/profile">
+        My profile
+      </v-btn>
+      <v-btn v-if="!isAuthenticated" flat class="hidden-sm-and-down" to="/login">
+        Sign in
+      </v-btn>
+      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/logout">
+        Logout
+      </v-btn>
     </v-toolbar>
   </span>
 </template>
 
 
 <script>
-  import {mapGetters} from 'vuex';
-
+  import { mapGetters, } from "vuex";
   export default {
-    name: 'AppNavigation',
+    name: "AppNavigation",
     data() {
       return {
-        appTitle: 'Mariana\'s Blog',
+        appTitle: "Mariana\"s Blog",
         drawer: false,
         items: [
-          {title: 'Home', router: '/'},
-          {title: 'Sign in', router: '/login'},
-          {title: 'Search', router: '/search'},
-          {title: 'Add post', router: '/post_add'},
-          {title: 'Language'},
+          {title: "Home", router: "/"},
+          {title: "Sign in", router: "/login"},
+          {title: "Search", router: "/search"},
+          {title: "Add post", router: "/post_add"},
+          {title: "Language"},
         ]
       };
     },
 
     computed: {
-      ...mapGetters('auth', ['isAuthenticated']),
-    }
+      ...mapGetters("auth", ["isAuthenticated"]),
+    },
   };
 </script>
 

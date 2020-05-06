@@ -47,35 +47,35 @@
 
 
 <script>
-  import {mapState} from 'vuex';
+  import {mapState} from "vuex";
 
   export default {
-    name: 'LoginForm',
+    name: "LoginForm",
     $_veeValidate: {
-      validator: 'new'
+      validator: "new"
     },
 
     data: () => ({
-      username: '',
-      password: '',
+      username: "",
+      password: "",
       show: false,
       dictionary: {
         custom: {
           username: {
-            required: () => 'Login can not be empty',
+            required: () => "Login can not be empty",
           },
           password: {
-            required: () => 'Password can not be empty',
+            required: () => "Password can not be empty",
           }
         }
       }
     }),
 
     computed:
-      mapState('auth', [
-        'authenticating',
-        'loginError',
-        'serverError',
+      mapState("auth", [
+        "authenticating",
+        "loginError",
+        "serverError",
       ]),
 
     methods: {
@@ -83,9 +83,9 @@
         this.$validator.validateAll().then((result) => {
           if (result) {
             this.$store
-              .dispatch('auth/login', {username, password})
-              .then(() => this.$router.push('/'))
-              .catch(error => this.serverError = true)
+              .dispatch("auth/login", {username, password})
+              .then(() => this.$router.push("/"))
+              .catch(() => this.serverError = true)
           }
         });
       },

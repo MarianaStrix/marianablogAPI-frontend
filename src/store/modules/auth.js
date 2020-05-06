@@ -1,5 +1,5 @@
-import auth from '../../api/auth';
-import session from '../../api/session';
+import auth from "../../api/auth";
+import session from "../../api/session";
 import {
   LOGIN_BEGIN,
   LOGIN_FAILURE,
@@ -7,15 +7,15 @@ import {
   LOGOUT,
   REMOVE_TOKEN,
   SET_TOKEN,
-} from '../actions/auth';
+} from "../actions/auth";
 
-const TOKEN_STORAGE_KEY = 'TOKEN_STORAGE_KEY';
+const TOKEN_STORAGE_KEY = "TOKEN_STORAGE_KEY";
 
 const initialState = {
   authenticating: false,
   loginError: false,
   serverError: false,
-  token: localStorage.getItem(TOKEN_STORAGE_KEY) || '',
+  token: localStorage.getItem(TOKEN_STORAGE_KEY) || "",
 
 };
 
@@ -24,20 +24,26 @@ const getters = {
 };
 
 const actions = {
-  login({commit}, {username, password}) {
+  login({commit, dispatch}, {username, password}) {
     commit(LOGIN_BEGIN);
     return auth.login(username, password)
       .then(({data}) => commit(SET_TOKEN, data.key))
       .then(() => commit(LOGIN_SUCCESS))
+      .then(() => dispatch("user/getAccount", {}, {root:true}))
       .catch((error) => commit(LOGIN_FAILURE, error));
   },
   logout({commit}) {
     return auth.logout()
       .then(() => commit(LOGOUT))
-      .finally(() => commit(REMOVE_TOKEN));
+      .finally(() => {
+        commit("user/REMOVE_PROFILE", null, { root: true });
+        commit("user/REMOVE_AVATAR", null, { root: true });
+        commit(REMOVE_TOKEN);
+        });
   },
   initialize({commit}) {
     const token = localStorage.getItem(TOKEN_STORAGE_KEY);
+
 
     if (token) {
       commit(SET_TOKEN, token);
