@@ -10,8 +10,8 @@
       </template>
 
       <template v-else-if="statusGetAccount === 'success'">
-        <profile-form>
-        </profile-form>
+        <profile-tabs>
+        </profile-tabs>
       </template>
 
       <template v-else-if="statusGetAccount === 'error'">
@@ -28,12 +28,12 @@
 <script>
   import { mapState } from 'vuex';
 
-  import ProfileForm from "@/components/profile/ProfileForm";
+  import ProfileTabs from "@/components/profile/ProfileTabs";
 
   export default {
     name: "Profile",
     components: {
-      ProfileForm,
+      ProfileTabs,
     },
     data() {
       return {

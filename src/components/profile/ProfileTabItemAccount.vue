@@ -1,10 +1,7 @@
 <template>
   <v-layout justify-center>
     <v-flex xs12 sm9>
-      <v-container
-        fluid
-        grid-list-md
-      >
+      <v-container fluid grid-list-md>
         <v-layout row wrap>
           <v-flex xs6>
             <v-card flat>
@@ -12,37 +9,38 @@
                 :src="card"
                 max-width="300"
                 max-height="400"
-              >
-              </v-img>
+              ></v-img>
             </v-card>
           </v-flex>
 
           <v-flex xs6>
             <v-card flat class="profile-data">
-                <div>
-                  <span class="profile">Login:</span>
-                  {{ profile.username }}
-                </div>
-                <div>
-                  <span class="profile">Email:</span>
-                  {{ profile.email }}
-                </div>
-                <div>
-                  <span class="profile">First name:</span>
-                  {{ profile.first_name }}
-                </div>
-                <div>
-                  <span class="profile">Last name:</span>
-                  {{ profile.last_name }}
-                </div>
-                <div>
-                  <span class="profile">Avatar:</span>
-                  <input ref="uploadBtn"
-                         type="file"
-                         accept="image/*"
-                         @change="uploadImage()"
-                         id="file-input">
-                </div>
+              <div>
+                <span class="profile">Login:</span>
+                {{ profile.username }}
+              </div>
+              <div>
+                <span class="profile">Email:</span>
+                {{ profile.email }}
+              </div>
+              <div>
+                <span class="profile">First name:</span>
+                {{ profile.first_name }}
+              </div>
+              <div>
+                <span class="profile">Last name:</span>
+                {{ profile.last_name }}
+              </div>
+              <div>
+                <span class="profile">Avatar:</span>
+                <input
+                  ref="uploadBtn"
+                  type="file"
+                  accept="image/*"
+                  @change="uploadImage()"
+                  id="file-input"
+                >
+              </div>
             </v-card>
           </v-flex>
 
@@ -84,8 +82,8 @@
           data: formData,
           config: config,
         })
-        .then(() => this.card = this.$store.state.user.avatar )
-        .catch(() => this.errored = true )
+          .then(() => this.card = this.$store.state.user.avatar)
+          .catch(() => this.errored = true)
       }
     },
   }

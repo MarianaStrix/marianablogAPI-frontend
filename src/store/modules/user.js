@@ -37,11 +37,7 @@ const state = {
 };
 
 const getters = {
-  getProfile: state => state.profile,
-  getId: state => state.profile.pk,
   getAvatar: state => state.avatar,
-  isProfileLoaded: state => !!state.profile.name,
-  isProfileConfirmed: state => state.comfirmed,
 };
 
 const actions = {
@@ -50,24 +46,23 @@ const actions = {
     return user.getAccount()
       .then((response) => {
         commit(ACCOUNT_SUCCESS, response);
-        commit(SET_PROFILE, state.profile);
+        commit(SET_PROFILE, response.data);
       })
       .then(() => {
-        dispatch("user/getAccountAvatar",
-          { id: state.profile.pk },
-          { root:true })
+        dispatch("user/getAccountAvatar", { id: state.profile.pk }, { root:true });
       })
       .catch((error) => {
         commit(ACCOUNT_FAILURE, error);
-        dispatch("auth/logout", {}, {root:true})
+        dispatch("auth/logout", {}, {root:true});
       });
   },
 
-  updateAccount({ commit }, { profileBase }) {
+  updateAccount({ commit }, { profileNew }) {
     commit(ACCOUNT_UPDATE_BEGIN);
-    return user.updateAccount(profileBase)
+    return user.updateAccount(profileNew)
       .then((response) => {
-        commit(ACCOUNT_UPDATE_SUCCESS, response);
+        commit(ACCOUNT_UPDATE_SUCCESS);
+        commit(SET_PROFILE, response.data);
       })
       .catch((error) => commit(ACCOUNT_UPDATE_FAILURE, error))
   },
@@ -76,8 +71,8 @@ const actions = {
     commit(AVATAR_BEGIN);
     return user.getAccountAvatar(id)
       .then((response) => {
-        commit(AVATAR_SUCCESS, response);
-        commit(SET_AVATAR, response.data.avatar)
+        commit(AVATAR_SUCCESS);
+        commit(SET_AVATAR, response.data.avatar);
       })
       .catch((error) => commit(AVATAR_FAILURE, error))
   },
@@ -86,9 +81,8 @@ const actions = {
     commit(AVATAR_UPDATE_BEGIN);
     return user.updateAccountAvatar(id, data, config)
       .then((response) => {
-        commit(REMOVE_AVATAR);
-        commit(AVATAR_UPDATE_SUCCESS, response);
-        commit(SET_AVATAR, response.data.avatar)
+        commit(AVATAR_UPDATE_SUCCESS);
+        commit(SET_AVATAR, response.data.avatar);
       })
       .catch((error) => commit(AVATAR_UPDATE_FAILURE, error))
   },
@@ -117,9 +111,8 @@ const mutations = {
   [ACCOUNT_BEGIN](state) {
     state.statusGetAccount = "loading";
   },
-  [ACCOUNT_SUCCESS](state, response) {
+  [ACCOUNT_SUCCESS](state) {
     state.statusGetAccount = "success";
-    state.profile = response.data;
     state.errorGetAccount = "";
   },
   [ACCOUNT_FAILURE](state, error) {
@@ -131,9 +124,8 @@ const mutations = {
   [ACCOUNT_UPDATE_BEGIN](state) {
     state.statusUpdateAccount = "loading"
   },
-  [ACCOUNT_UPDATE_SUCCESS](state, response) {
+  [ACCOUNT_UPDATE_SUCCESS](state) {
     state.statusUpdateAccount = "success";
-    state.profile = response.data;
     state.errorUpdateAccount = "";
   },
   [ACCOUNT_UPDATE_FAILURE](state, error) {
@@ -144,10 +136,9 @@ const mutations = {
   [AVATAR_BEGIN](state) {
     state.statusGetAvatar = "loading";
   },
-  [AVATAR_SUCCESS](state, response) {
+  [AVATAR_SUCCESS](state) {
     state.statusGetAvatar = "success";
     state.errorGetAvatar = "";
-    state.avatar = response.data.avatar;
   },
   [AVATAR_FAILURE](state, error) {
     state.statusGetAvatar = "error";
@@ -156,11 +147,10 @@ const mutations = {
   },
 
   [AVATAR_UPDATE_BEGIN](state) {
-    state.statusUpdateAvatar = "loading"
+    state.statusUpdateAvatar = "loading";
   },
-  [AVATAR_UPDATE_SUCCESS](state, response) {
+  [AVATAR_UPDATE_SUCCESS](state) {
     state.statusUpdateAvatar = "success";
-    state.avatar = response.data.avatar;
     state.errorUpdateAvatar = "";
   },
   [AVATAR_UPDATE_FAILURE](state, error) {
@@ -171,7 +161,6 @@ const mutations = {
   [SET_PROFILE](state, profile) {
     localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
     state.profile = profile;
-    state.statusGetAccount = "success";
   },
   [REMOVE_PROFILE](state) {
     localStorage.removeItem(PROFILE_STORAGE_KEY);
