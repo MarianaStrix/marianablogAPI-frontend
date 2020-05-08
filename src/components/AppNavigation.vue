@@ -2,7 +2,7 @@
   <span>
     <v-navigation-drawer app v-model="drawer" class="blue-grey darken-4" dark disable-resize-watcher>
       <v-list>
-        <template v-for="(item, index) in items">
+        <template v-for="(item, index) in isAuthenticated ? itemsLogin : itemsNotLogin">
           <v-list-tile :key="index">
             <v-list-tile-content>
               <router-link :to="{path:item.router}">
@@ -24,12 +24,6 @@
       </router-link>
       <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/post_add">Add post</v-btn>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
-<!--      <v-btn icon class="hidden-sm-and-down">-->
-<!--        <v-icon>search</v-icon>-->
-<!--      </v-btn>-->
-<!--      <v-btn flat class="hidden-sm-and-down" to="/register">-->
-<!--        <v-icon>language</v-icon>-->
-<!--      </v-btn>-->
       <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/profile">
         My profile
       </v-btn>
@@ -52,13 +46,15 @@
       return {
         appTitle: "Mariana\"s Blog",
         drawer: false,
-        items: [
+        itemsLogin: [
           {title: "Home", router: "/"},
-          {title: "Sign in", router: "/login"},
-          {title: "Search", router: "/search"},
           {title: "Add post", router: "/post_add"},
-          {title: "Language"},
-        ]
+          {title: "My profile", router: "/profile"},
+          {title: "Logout", router: "/logout"},
+        ],
+        itemsNotLogin: [
+          {title: "Sign in", router: "/login"},
+        ],
       };
     },
 
