@@ -1,6 +1,6 @@
 <template>
   <v-card flat color="while">
-    <v-card-text id="text-post">
+    <v-card-text>
       <template v-if="error">
         <span>We're sorry, we're not able to retrieve this information at the moment, please try back later.</span>
       </template>
@@ -40,11 +40,13 @@
         </form>
         <v-card-actions>
           <v-spacer/>
-          <v-btn @click="submit(title, text,  tags)"
-                 right
-                 dark
-                 color="blue-grey darken-1"
-          >Add post
+          <v-btn
+            @click="submit(title, text,  tags)"
+            right
+            dark
+            color="blue-grey darken-1"
+          >
+            Add post
           </v-btn>
         </v-card-actions>
       </template>
@@ -67,11 +69,7 @@
 
     methods: {
       makeListTags: function (tags) {
-        if (tags === []) {
-          return [""]
-        } else {
-          return tags.split(", ")
-        }
+        return tags.split(", ")
       },
 
       submit(title, text, tags) {

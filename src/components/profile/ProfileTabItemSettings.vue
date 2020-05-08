@@ -14,7 +14,6 @@
             v-validate="'max:32'"
             :error-messages="errors.collect('firstname')"
             data-vv-name="firstname"
-
           ></v-text-field>
           <v-text-field
             v-model="lastname"
@@ -25,12 +24,10 @@
             v-validate="'max:32'"
             :error-messages="errors.collect('lastname')"
             data-vv-name="lastname"
-
           ></v-text-field>
-
-
         </v-container>
       </v-form>
+
       <v-card-actions>
         <v-spacer/>
         <v-btn
@@ -41,10 +38,9 @@
         >Save
         </v-btn>
       </v-card-actions>
+
     </v-card-text>
-
   </v-card>
-
 </template>
 
 <script>

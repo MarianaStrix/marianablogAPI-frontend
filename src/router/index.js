@@ -9,6 +9,7 @@ import PasswordReset from "../views/auth/PasswordReset";
 import PasswordResetConfirm from "../views/auth/PasswordResetConfirm";
 import PostAdd from "../views/posts/PostAdd"
 import PostDetail from "../views/posts/PostDetail";
+import PostEdit from "../views/posts/PostEdit";
 import Profile from "../views/Profile"
 import store from "../store";
 import VerifyEmail from "../views/auth/VerifyEmail";
@@ -79,12 +80,22 @@ export default new Router({
     {
       path: "/post_add",
       component: PostAdd,
+      beforeEnter: requireAuthenticated,
+
+    },
+    {
+      path: '/post_edit/:id',
+      component: PostEdit,
+      props: true,
+      beforeEnter: requireAuthenticated,
+
     },
     {
       path: "/post/:id",
       name: "post",
       component: PostDetail,
       props: true,
+      beforeEnter: requireAuthenticated,
     },
     {
       path: "/profile",

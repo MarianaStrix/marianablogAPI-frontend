@@ -1,8 +1,8 @@
 <template>
   <v-container grid-list-md class="total-tape">
     <v-layout row wrap>
-      <v-flex xs12 sm12 md9 >
-        <post-card-detail :post="post"></post-card-detail>
+      <v-flex xs12 sm12 md9>
+          <post-card-detail :post="post"></post-card-detail>
       </v-flex>
       <side-panel></side-panel>
     </v-layout>
@@ -10,12 +10,11 @@
 </template>
 
 <script>
-  import axios from "axios";
   import moment from "moment/moment";
 
-  const BASE_URL = process.env.VUE_APP_BASEURL;
   import PostCardDetail from "@/components/fragments/PostCardDetail";
   import SidePanel from "@/components/SidePanel";
+  import posts from "../../api/posts";
 
   export default {
     name: "PostDetail",
@@ -31,17 +30,18 @@
       }
     },
     created() {
-      axios.get(BASE_URL + "/posts/" + this.id)
+      posts.detailPost(this.id)
         .then(response => {
           this.post = response.data
         })
         .catch(() => {
-          this.$router.push({name: "not_found", });
+          this.$router.push({name: "not_found",});
         })
     },
-    methods: {
-      moment
-    }
+    methods:
+      {
+        moment
+      }
   }
 </script>
 
