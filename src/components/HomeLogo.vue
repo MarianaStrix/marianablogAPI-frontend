@@ -1,7 +1,20 @@
 <template>
-  <v-parallax dark :src="require('../assets/lash4.jpg')" height="350" jumbotron>
-    <v-container fluid grid-list-xl text-xs-center class="home-logo">
-      <v-layout justify-center align-center column mt-4 pa-5>
+  <v-parallax
+    dark
+    :src="require('../assets/lash4.jpg')"
+    height="350"
+    jumbotron>
+    <v-container
+      fluid
+      grid-list-xl
+      text-xs-center
+      class="home-logo">
+      <v-layout
+        justify-center
+        align-center
+        column
+        mt-4
+        pa-5>
         <div class="logo font-weight-black white--text text-xs-center">
           <span class="name-site">Mariana's Blog</span>
         </div>

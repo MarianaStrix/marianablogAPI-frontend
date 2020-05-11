@@ -10,8 +10,8 @@
         data-vv-name="username"
         required
         id="login"
-        type="text"
-      ></v-text-field>
+        type="text">
+      </v-text-field>
       <v-text-field
         v-model="password"
         prepend-icon="lock"
@@ -22,8 +22,8 @@
         label="Password"
         data-vv-name="password"
         required
-        @click:append="show = !show"
-      ></v-text-field>
+        @click:append="show = !show">
+      </v-text-field>
     </form>
     <div>
       <span class="errorForm" v-show="loginError">
@@ -36,10 +36,11 @@
     <router-link class="link-reset" to="/password_reset">Reset password</router-link>
     <v-card-actions>
       <v-spacer/>
-      <v-btn @click="submit(username, password)"
-             dark
-             color="blue-grey darken-1"
-      >Login
+      <v-btn
+        @click="submit(username, password)"
+        dark
+        color="blue-grey darken-1">
+        Login
       </v-btn>
     </v-card-actions>
   </v-card-text>
@@ -66,9 +67,9 @@
           },
           password: {
             required: () => "Password can not be empty",
-          }
+          },
         }
-      }
+      },
     }),
 
     computed:
@@ -85,7 +86,7 @@
             this.$store
               .dispatch("auth/login", {username, password})
               .then(() => this.$router.push("/"))
-              .catch(() => this.serverError = true)
+              .catch(() => this.serverError = true);
           }
         });
       },

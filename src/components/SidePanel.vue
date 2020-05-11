@@ -10,7 +10,9 @@
       <v-divider></v-divider>
       <v-card-text class="panel-cloud-tags">
         <span>
-          # ЗДЕСЬ ДОВАВИТЬ ТЕГИ САМЫЕ РАСПРАСТРАНЕННЫЕ #ddhddfd #dasdfadsf #cvfdsadsfaj #jhffajv #nbcjfasdfc #jcafdsfhj #fasdfas #vjdcjv
+          # ЗДЕСЬ ДОВАВИТЬ ТЕГИ САМЫЕ РАСПРАСТРАНЕННЫЕ
+          #ddhddfd #dasdfadsf #cvfdsadsfaj #jhffajv #nbcjfasdfc
+          #jcafdsfhj #fasdfas #vjdcjv
         </span>
       </v-card-text>
     </v-card>

@@ -46,23 +46,12 @@
       this.$store.dispatch("user/initializeStorageProfile")
         .catch(() => this.errored = true );
       this.$store.dispatch("user/initializeStorageProfileAvatar")
-        .catch(() => this.errored = true )
+        .catch(() => this.errored = true );
     },
     computed: {
       ...mapState("user", ["statusGetAccount"]),
       ...mapState({profile: state => state.user.profile}),
     },
-
-    // methods: {
-    //     ...mapActions("user", ["isAuthenticated"]),
-    //     saveBasicSettings(profile) {
-    //         this.$validator.validateAll().then((result) => {
-    //             if (result) {
-    //                 user.updateAccountDetails(profile)
-    //             }
-    //         });
-    //     }
-    // }
   }
 </script>
 

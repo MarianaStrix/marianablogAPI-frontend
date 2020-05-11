@@ -49,11 +49,11 @@ const actions = {
         commit(SET_PROFILE, response.data);
       })
       .then(() => {
-        dispatch("user/getAccountAvatar", { id: state.profile.pk }, { root:true });
+        dispatch("user/getAccountAvatar", { id: state.profile.pk }, { root: true });
       })
       .catch((error) => {
         commit(ACCOUNT_FAILURE, error);
-        dispatch("auth/logout", {}, {root:true});
+        dispatch("auth/logout", {}, { root: true });
       });
   },
 
@@ -67,7 +67,7 @@ const actions = {
       .catch((error) => commit(ACCOUNT_UPDATE_FAILURE, error))
   },
 
-  getAccountAvatar({ commit }, { id }){
+  getAccountAvatar({ commit }, {id}) {
     commit(AVATAR_BEGIN);
     return user.getAccountAvatar(id)
       .then((response) => {
@@ -77,7 +77,7 @@ const actions = {
       .catch((error) => commit(AVATAR_FAILURE, error))
   },
 
-  updateAccountAvatar({ commit }, { id, data, config }){
+  updateAccountAvatar({ commit }, { id, data, config }) {
     commit(AVATAR_UPDATE_BEGIN);
     return user.updateAccountAvatar(id, data, config)
       .then((response) => {
@@ -96,7 +96,7 @@ const actions = {
       commit(REMOVE_PROFILE);
     }
   },
-    initializeStorageProfileAvatar({ commit }) {
+  initializeStorageProfileAvatar({ commit }) {
     const avatar = JSON.parse(localStorage.getItem(AVATAR_STORAGE_KEY));
 
     if (avatar) {

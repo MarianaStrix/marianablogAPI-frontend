@@ -2,10 +2,15 @@
   <v-flex xs12 sm12 md9>
     <v-layout row column class="tape-posts">
       <v-flex xs12 sm12 md9 v-if="errored" class="api-error">
-        <span>We're sorry, we're not able to retrieve this information at the moment, please try back later.</span>
+        <span>
+          We're sorry, we're not able to retrieve this information at the moment,
+          please try back later.
+        </span>
       </v-flex>
-      <post-card v-for="post in posts" :key="post.id"
-                 :post="post">
+      <post-card
+        v-for="post in posts"
+        :key="post.id"
+        :post="post">
       </post-card>
     </v-layout>
   </v-flex>
@@ -22,13 +27,13 @@
     data() {
       return {
         posts: [],
-        errored: false
+        errored: false,
       }
     },
     created() {
       posts.postList()
         .then(response => {
-          this.posts = response.data.results
+          this.posts = response.data.results;
         })
         .catch(() => {
           this.errored = true;

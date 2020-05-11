@@ -15,8 +15,8 @@
           label="E-mail"
           prepend-icon="email"
           name="E-mail"
-          type="text"
-        ></v-text-field>
+          type="text">
+        </v-text-field>
       </form>
       <span class="errorForm" v-show="emailError">
         A error occured while processing your request.
@@ -24,10 +24,11 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="submit(inputs)"
-               dark
-               color="blue-grey darken-1"
-        >Reset Password
+        <v-btn
+          @click="submit(inputs)"
+          dark
+          color="blue-grey darken-1">
+          Reset Password
         </v-btn>
       </v-card-actions>
     </template>
@@ -39,9 +40,10 @@
       </div>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn to="/login"
-               dark
-               color="blue-grey darken-1">
+        <v-btn
+          to="/login"
+          dark
+          color="blue-grey darken-1">
           return to login page
         </v-btn>
       </v-card-actions>

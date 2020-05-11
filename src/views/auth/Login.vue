@@ -1,8 +1,11 @@
 <template>
   <card-auth>
-    <v-tabs color="blue-grey darken-2"
-            grow fixed-tabs dark
-            slider-color="white">
+    <v-tabs
+      color="blue-grey darken-2"
+      grow
+      fixed-tabs
+      dark
+      slider-color="white">
       <v-tab>
         Login
       </v-tab>
@@ -36,7 +39,6 @@
       LoginForm,
       RegisterForm,
     },
-
   }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <v-card-text>
     <template v-if="resetLoading">
+      <v-icon>fas fa-circle-notch fa-spin</v-icon>
       loading...
     </template>
     <template v-else-if="!resetCompleted">
@@ -31,14 +32,16 @@
           @click:append="show = !show">
         </v-text-field>
       </form>
-      <span class="errorForm"
-            v-for="(error, index) in resetError"
-            :key="index"
-            v-show="resetError">
-                {{error}}
-            </span>
+      <span
+        class="errorForm"
+        v-for="(error, index) in resetError"
+        :key="index"
+        v-show="resetError">
+        {{error}}
+      </span>
       <span class="errorForm" v-show="resetErrorToken">
-        The password reset link was invalid, possibly because it has already been used. Please request a new password reset.
+        The password reset link was invalid, possibly because it has already been used.
+        Please request a new password reset.
       </span>
       <span class="errorForm" v-show="serverError">
         {{resetError}}
@@ -46,10 +49,11 @@
       </span>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="submit"
-               dark
-               color="blue-grey darken-1"
-        >Reset Password
+        <v-btn
+          @click="submit"
+          dark
+          color="blue-grey darken-1">
+          Reset Password
         </v-btn>
       </v-card-actions>
     </template>
@@ -58,9 +62,10 @@
       Your password has been reset.
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn to="/login"
-               dark
-               color="blue-grey darken-1">
+        <v-btn
+          to="/login"
+          dark
+          color="blue-grey darken-1">
           return to login page
         </v-btn>
       </v-card-actions>

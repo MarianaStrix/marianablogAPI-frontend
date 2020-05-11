@@ -2,50 +2,55 @@
   <v-card-text>
     <template v-if="registrationLoading">
       <v-card-text>
+        <v-icon>fas fa-circle-notch fa-spin</v-icon>
         loading...
       </v-card-text>
     </template>
     <template v-else-if="!registrationCompleted">
       <form method="post">
-        <v-text-field v-model="inputs.username"
-                      prepend-icon="person"
-                      v-validate="'required'"
-                      :error-messages="errors.collect('login')"
-                      data-vv-name="login"
-                      name="login"
-                      label="Login"
-                      type="text"
-        ></v-text-field>
-        <v-text-field v-model="inputs.email"
-                      v-validate="'required|email'"
-                      :error-messages="errors.collect('email')"
-                      data-vv-name="email"
-                      prepend-icon="email"
-                      name="email"
-                      label="E-mail"
-                      type="email"
-        ></v-text-field>
-        <v-text-field v-model="inputs.password1"
-                      v-validate="'required|min:8'"
-                      :error-messages="errors.collect('password')"
-                      prepend-icon="lock"
-                      :type="show ? 'text' : 'password'"
-                      :append-icon="show ? 'visibility' : 'visibility_off'"
-                      name="password"
-                      label="Password"
-                      ref="password"
-                      @click:append="show = !show">
+        <v-text-field
+          v-model="inputs.username"
+          prepend-icon="person"
+          v-validate="'required'"
+          :error-messages="errors.collect('login')"
+          data-vv-name="login"
+          name="login"
+          label="Login"
+          type="text">
         </v-text-field>
-        <v-text-field v-model="inputs.password2"
-                      v-validate="'required|confirmed:password'"
-                      :error-messages="errors.collect('password_confirmation')"
-                      prepend-icon="lock"
-                      :type="show ? 'text' : 'password'"
-                      :append-icon="show ? 'visibility' : 'visibility_off'"
-                      name="password_confirmation"
-                      label="Re-enter password"
-                      data-vv-as="password"
-                      @click:append="show = !show">
+        <v-text-field
+          v-model="inputs.email"
+          v-validate="'required|email'"
+          :error-messages="errors.collect('email')"
+          data-vv-name="email"
+          prepend-icon="email"
+          name="email"
+          label="E-mail"
+          type="email">
+        </v-text-field>
+        <v-text-field
+          v-model="inputs.password1"
+          v-validate="'required|min:8'"
+          :error-messages="errors.collect('password')"
+          prepend-icon="lock"
+          :type="show ? 'text' : 'password'"
+          :append-icon="show ? 'visibility' : 'visibility_off'"
+          name="password"
+          label="Password"
+          ref="password"
+          @click:append="show = !show">
+        </v-text-field>
+        <v-text-field
+          v-model="inputs.password2"
+          v-validate="'required|confirmed:password'"
+          :error-messages="errors.collect('password_confirmation')"
+          prepend-icon="lock"
+          :type="show ? 'text' : 'password'"
+          :append-icon="show ? 'visibility' : 'visibility_off'"
+          name="password_confirmation"
+          label="Re-enter password"
+          data-vv-as="password"
+          @click:append="show = !show">
         </v-text-field>
       </form>
       <div>
@@ -55,19 +60,21 @@
           </div>
         </span>
         <template>
-          <vue-recaptcha ref="recaptcha"
-                         :sitekey="sitekey"
-                         @verify="onVerify"
-                         @expired="onExpired"
-          ></vue-recaptcha>
+          <vue-recaptcha
+            ref="recaptcha"
+            :sitekey="sitekey"
+            @verify="onVerify"
+            @expired="onExpired">
+          </vue-recaptcha>
         </template>
       </div>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="register(inputs)"
-               dark
-               color="blue-grey darken-1"
-        >Sing in
+        <v-btn
+          @click="register(inputs)"
+          dark
+          color="blue-grey darken-1">
+          Sing in
         </v-btn>
       </v-card-actions>
     </template>
@@ -84,8 +91,9 @@
 
 
 <script>
-  import {mapActions, mapState} from "vuex";
   import VueRecaptcha from "vue-recaptcha";
+
+  import {mapActions, mapState} from "vuex";
 
   const SITE_KEY = process.env.VUE_APP_SITE_KEY_RECAPTCHA;
 
@@ -133,7 +141,7 @@
       register(inputs) {
         this.$validator.validateAll().then((result) => {
           if (result) {
-            this.createAccount(inputs)
+            this.createAccount(inputs);
           }
         });
       },

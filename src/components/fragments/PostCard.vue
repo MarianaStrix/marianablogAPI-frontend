@@ -2,7 +2,9 @@
   <v-card flat color="while">
     <v-card-title>
       <router-link :to="'/post/'+ post.id">
-        <span class="post-title">{{post.title}}</span>
+        <span class="post-title">
+          {{post.title}}
+        </span>
       </router-link>
     </v-card-title>
     <div>
@@ -11,7 +13,12 @@
         <span>{{moment(post.published_date).format("LLLL")}}</span>
       </div>
       <div class="info-post">
-        <v-icon small color="blue-grey lighten-1" id="icon-person">person</v-icon>
+        <v-icon
+          small color="blue-grey
+          lighten-1"
+          id="icon-person">
+          person
+        </v-icon>
         <span>{{post.author}}</span>
       </div>
     </div>
@@ -37,8 +44,8 @@
     name: "PostCard",
     props: ["post"],
     methods: {
-      moment
-    }
+      moment,
+    },
   }
 </script>
 

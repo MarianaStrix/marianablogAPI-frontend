@@ -1,6 +1,11 @@
 <template>
   <span>
-    <v-navigation-drawer app v-model="drawer" class="blue-grey darken-4" dark disable-resize-watcher>
+    <v-navigation-drawer
+      app
+      v-model="drawer"
+      class="blue-grey darken-4"
+      dark
+      disable-resize-watcher>
       <v-list>
         <template v-for="(item, index) in isAuthenticated ? itemsLogin : itemsNotLogin">
           <v-list-tile :key="index">
@@ -14,23 +19,46 @@
         </template>
       </v-list>
     </v-navigation-drawer>
+
     <v-toolbar app dense color="blue-grey darken-4" dark>
-      <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon
+        class="hidden-md-and-up"
+        @click="drawer = !drawer">
+      </v-toolbar-side-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
+
       <router-link to="/">
         <v-toolbar-title to="/">
           <img id="logo-image" alt="" src="../assets/logo.png">
         </v-toolbar-title>
       </router-link>
-      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/post_add">Add post</v-btn>
+
+      <v-btn
+        v-if="isAuthenticated"
+        flat
+        class="hidden-sm-and-down"
+        to="/post_add">
+        Add post
+      </v-btn>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
-      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/profile">
+      <v-btn
+        v-if="isAuthenticated"
+        flat class="hidden-sm-and-down"
+        to="/profile">
         My profile
       </v-btn>
-      <v-btn v-if="!isAuthenticated" flat class="hidden-sm-and-down" to="/login">
+      <v-btn
+        v-if="!isAuthenticated"
+        flat
+        class="hidden-sm-and-down"
+        to="/login">
         Sign in
       </v-btn>
-      <v-btn v-if="isAuthenticated" flat class="hidden-sm-and-down" to="/logout">
+      <v-btn
+        v-if="isAuthenticated"
+        flat
+        class="hidden-sm-and-down"
+        to="/logout">
         Logout
       </v-btn>
     </v-toolbar>
@@ -40,11 +68,12 @@
 
 <script>
   import { mapGetters, } from "vuex";
+
   export default {
     name: "AppNavigation",
     data() {
       return {
-        appTitle: "Mariana\"s Blog",
+        appTitle: "Mariana's Blog",
         drawer: false,
         itemsLogin: [
           {title: "Home", router: "/"},

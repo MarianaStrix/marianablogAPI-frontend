@@ -16,8 +16,8 @@
                 data-vv-name="title"
                 label="Title"
                 color="teal darken-1"
-                type="text"
-              ></v-text-field>
+                type="text">
+              </v-text-field>
               <v-textarea
                 box
                 v-model="text"
@@ -27,8 +27,8 @@
                 label="Text post"
                 color="teal darken-1"
                 type="text"
-                row="10"
-              ></v-textarea>
+                row="10">
+              </v-textarea>
               <v-text-field
                 box
                 v-model="tags"
@@ -38,8 +38,8 @@
                 label="Tags"
                 color="teal darken-1"
                 type="text"
-                hint="A comma-separated list of tags. For example: travel, city, university"
-              ></v-text-field>
+                hint="A comma-separated list of tags. For example: travel, city, university">
+              </v-text-field>
             </form>
             <v-card-actions>
               <v-spacer/>
@@ -47,8 +47,7 @@
                 @click="submit(title, text,  tags)"
                 right
                 dark
-                color="blue-grey darken-1"
-              >
+                color="blue-grey darken-1">
                 Edit post
               </v-btn>
             </v-card-actions>
@@ -62,8 +61,8 @@
 </template>
 
 <script>
-  import SidePanel from "../../components/SidePanel";
   import posts from "../../api/posts";
+  import SidePanel from "../../components/SidePanel";
 
   export default {
     name: "PostEdit",
@@ -85,8 +84,6 @@
           this.title = this.post.title;
           this.text = this.post.text;
           this.tags = this.post.tags.join(", ");
-          // eslint-disable-next-line no-console
-          console.log(this.tags)
         })
         .catch(() => {
           this.$router.push({name: "not_found",});
@@ -94,7 +91,7 @@
     },
     methods: {
       makeListTags: function (tags) {
-        return tags.split(", ")
+        return tags.split(", ");
       },
 
       submit(title, text, tags) {
@@ -102,7 +99,7 @@
           if (result) {
             posts.editPost(this.post.id, title, text, this.makeListTags(tags))
               .then(response => {
-                this.$router.push({name: "post", params: {id: response.data.id}})
+                this.$router.push({ name: "post", params: {id: response.data.id} });
               })
               .catch(() => {
                 this.error = true;
@@ -115,5 +112,4 @@
 </script>
 
 <style scoped>
-
 </style>

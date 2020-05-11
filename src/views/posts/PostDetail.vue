@@ -26,13 +26,13 @@
     data() {
       return {
         post: [],
-        errored: false
+        errored: false,
       }
     },
     created() {
       posts.detailPost(this.id)
         .then(response => {
-          this.post = response.data
+          this.post = response.data;
         })
         .catch(() => {
           this.$router.push({name: "not_found",});
@@ -40,11 +40,10 @@
     },
     methods:
       {
-        moment
+        moment,
       }
   }
 </script>
 
 <style scoped>
-
 </style>

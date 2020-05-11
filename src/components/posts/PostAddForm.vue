@@ -2,7 +2,9 @@
   <v-card flat color="while">
     <v-card-text>
       <template v-if="error">
-        <span>We're sorry, we're not able to retrieve this information at the moment, please try back later.</span>
+        <span>We're sorry, we're not able to retrieve this information at the moment,
+          please try back later.
+        </span>
       </template>
       <template v-else>
 
@@ -15,8 +17,8 @@
             :error-messages="errors.collect('title')"
             label="Title"
             data-vv-name="title"
-            required
-          ></v-text-field>
+            required>
+          </v-text-field>
           <v-textarea
             box
             v-model="text"
@@ -25,8 +27,8 @@
             :error-messages="errors.collect('text')"
             name="text"
             label="Text post"
-            rows="10"
-          ></v-textarea>
+            rows="10">
+          </v-textarea>
           <v-text-field
             box
             v-model="tags"
@@ -35,8 +37,8 @@
             label="Tags"
             data-vv-name="tags"
             hint="A comma-separated list of tags. For example: travel, city, university"
-            color="teal darken-1"
-          ></v-text-field>
+            color="teal darken-1">
+          </v-text-field>
         </form>
         <v-card-actions>
           <v-spacer/>
@@ -44,8 +46,7 @@
             @click="submit(title, text,  tags)"
             right
             dark
-            color="blue-grey darken-1"
-          >
+            color="blue-grey darken-1">
             Add post
           </v-btn>
         </v-card-actions>
@@ -60,24 +61,24 @@
 
   export default {
     name: "PostAddForm",
-    data: () => ({
-      title: "",
-      text: "",
-      tags: "",
-      error: false,
-    }),
-
+    data() {
+      return {
+        title: "",
+        text: "",
+        tags: "",
+        error: false,
+      };
+    },
     methods: {
       makeListTags: function (tags) {
-        return tags.split(", ")
+        return tags.split(", ");
       },
-
       submit(title, text, tags) {
         this.$validator.validateAll().then((result) => {
           if (result) {
             posts.addPost(title, text, this.makeListTags(tags))
               .then(response => {
-                this.$router.push({name: "post", params: {id: response.data.id}})
+                this.$router.push({name: "post", params: {id: response.data.id}});
               })
               .catch(() => {
                 this.error = true;

@@ -8,8 +8,8 @@
               <v-img
                 :src="card"
                 max-width="300"
-                max-height="400"
-              ></v-img>
+                max-height="400">
+              </v-img>
             </v-card>
           </v-flex>
 
@@ -38,8 +38,7 @@
                   type="file"
                   accept="image/*"
                   @change="uploadImage()"
-                  id="file-input"
-                >
+                  id="file-input">
               </div>
             </v-card>
           </v-flex>
@@ -75,7 +74,7 @@
         let config = {
           headers: {
             "Content-Type": "multipart/form-data",
-          }
+          },
         };
         this.$store.dispatch("user/updateAccountAvatar", {
           id: this.profile.pk,

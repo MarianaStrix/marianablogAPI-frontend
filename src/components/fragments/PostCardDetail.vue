@@ -3,43 +3,39 @@
     <v-card-title>
       <div class="post-title">
         {{post.title}}
-        <v-btn flat icon color="teal darken-3" :to="'/post_edit/'+ post.id">
-
-            <v-icon>edit</v-icon>
-          </v-btn>
         <v-btn
-            flat
-            icon
-            color="red lighten-2"
-            @click.stop="dialog = true"
-
-          >
-            <v-icon>delete_forever</v-icon>
-          </v-btn>
-        <v-dialog
-          v-model="dialog"
-          max-width="290"
-        >
+          flat
+          icon
+          color="teal darken-3"
+          :to="'/post_edit/'+ post.id">
+          <v-icon>edit</v-icon>
+        </v-btn>
+        <v-btn
+          flat
+          icon
+          color="red lighten-2"
+          @click.stop="dialog = true">
+          <v-icon>delete_forever</v-icon>
+        </v-btn>
+        <v-dialog v-model="dialog" max-width="290">
           <v-card>
             <v-card-title class="headline">Delete post</v-card-title>
             <v-card-text>
-                Are you sure you want to delete this post:
-                <b>{{post.title}}</b>
+              Are you sure you want to delete this post:
+              <b>{{post.title}}</b>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
                 color="green darken-1"
                 flat="flat"
-                @click="dialog = false"
-              >
+                @click="dialog = false">
                 Cancel
               </v-btn>
               <v-btn
                 color="green darken-1"
                 flat="flat"
-                @click="deletePost(post.id)"
-              >
+                @click="deletePost(post.id)">
                 Delete
               </v-btn>
             </v-card-actions>
@@ -85,15 +81,15 @@
     props: ["post"],
     data() {
       return {
-        dialog: false
+        dialog: false,
       }
     },
     methods: {
       moment,
       deletePost: function () {
         posts.deletePost(this.post.id)
-        .then(() => this.$router.push("/"))
-        .catch(() => this.$router.push("/"))
+          .then(() => this.$router.push("/"))
+          .catch(() => this.$router.push("/"))
       },
     },
   }

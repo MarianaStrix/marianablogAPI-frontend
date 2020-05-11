@@ -24,22 +24,22 @@ const getters = {
 };
 
 const actions = {
-  login({commit, dispatch}, {username, password}) {
+  login({ commit, dispatch }, { username, password }) {
     commit(LOGIN_BEGIN);
     return auth.login(username, password)
       .then(({data}) => commit(SET_TOKEN, data.key))
       .then(() => commit(LOGIN_SUCCESS))
-      .then(() => dispatch("user/getAccount", {}, {root:true}))
+      .then(() => dispatch("user/getAccount", {}, { root: true }))
       .catch((error) => commit(LOGIN_FAILURE, error));
   },
-  logout({commit}) {
+  logout({ commit }) {
     return auth.logout()
       .then(() => commit(LOGOUT))
       .finally(() => {
         commit("user/REMOVE_PROFILE", null, { root: true });
         commit("user/REMOVE_AVATAR", null, { root: true });
         commit(REMOVE_TOKEN);
-        });
+      });
   },
   initialize({commit}) {
     const token = localStorage.getItem(TOKEN_STORAGE_KEY);

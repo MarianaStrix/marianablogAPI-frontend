@@ -13,8 +13,8 @@
             v-bind:placeholder="profile.first_name"
             v-validate="'max:32'"
             :error-messages="errors.collect('firstname')"
-            data-vv-name="firstname"
-          ></v-text-field>
+            data-vv-name="firstname">
+          </v-text-field>
           <v-text-field
             v-model="lastname"
             color="teal darken-1"
@@ -23,8 +23,8 @@
             v-bind:placeholder="profile.last_name"
             v-validate="'max:32'"
             :error-messages="errors.collect('lastname')"
-            data-vv-name="lastname"
-          ></v-text-field>
+            data-vv-name="lastname">
+          </v-text-field>
         </v-container>
       </v-form>
 
@@ -34,8 +34,8 @@
           @click="submit(username, firstname, lastname, profileNew)"
           right
           dark
-          color="blue-grey darken-1"
-        >Save
+          color="blue-grey darken-1">
+          Save
         </v-btn>
       </v-card-actions>
 
@@ -60,7 +60,6 @@
         dictionary: {
           attributes: {
             email: "E-mail Address"
-            // custom attributes
           },
           custom: {
             firstname: {
@@ -68,13 +67,13 @@
             },
             lastname: {
               max: "The last name field may not be greater than 32 characters"
-            }
+            },
           }
-        }
+        },
       }
     },
     mounted() {
-      this.$validator.localize("en", this.dictionary)
+      this.$validator.localize("en", this.dictionary);
     },
     computed: {
       form() {
@@ -94,14 +93,12 @@
               profileNew["first_name"] = firstname;
             if (lastname != null)
               profileNew["last_name"] = lastname;
-            // eslint-disable-next-line no-console
-            console.log(profileNew)
-            // this.$store.dispatch("user/updateAccount", {profileNew})
-            //   .then(() => {
-            //     this.lastname = null;
-            //     this.firstname = null;
-            //   })
-            //   .catch(() => this.serverError = true)
+            this.$store.dispatch("user/updateAccount", {profileNew})
+              .then(() => {
+                this.lastname = null;
+                this.firstname = null;
+              })
+              .catch(() => this.serverError = true)
           }
         });
       },
