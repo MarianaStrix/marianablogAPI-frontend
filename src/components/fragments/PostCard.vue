@@ -14,9 +14,8 @@
       </div>
       <div class="info-post">
         <v-icon
-          small color="blue-grey
-          lighten-1"
-          id="icon-person">
+          small
+          color="blue-grey lighten-1">
           person
         </v-icon>
         <span>{{post.author}}</span>
